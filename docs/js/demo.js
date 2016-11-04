@@ -5,31 +5,31 @@
   var htmlSrc1 = [
     {
       type: 'video/webm',
-      src: 'video/Symmetric-Traffic.webm'
+      src: 'https://s3-eu-west-1.amazonaws.com/originalexe/vidim/videos/Symmetric-Traffic.webm'
     },
     {
       type: 'video/mp4',
-      src: 'video/Symmetric-Traffic.mp4'
+      src: 'https://s3-eu-west-1.amazonaws.com/originalexe/vidim/videos/Symmetric-Traffic.mp4'
     },
     {
       type: 'video/ogv',
-      src: 'video/Symmetric-Traffic.ogv'
+      src: 'https://s3-eu-west-1.amazonaws.com/originalexe/vidim/videos/Symmetric-Traffic.ogv'
     }
   ];
 
   var htmlSrc2 = [
     {
       type: 'video/mp4',
-      src: 'video/Coverr-Lulu.mp4'
+      src: 'https://s3-eu-west-1.amazonaws.com/originalexe/vidim/videos/Coverr-Lulu.mp4'
     },
     {
       type: 'video/ogv',
-      src: 'video/Coverr-Lulu.ogv'
+      src: 'https://s3-eu-west-1.amazonaws.com/originalexe/vidim/videos/Coverr-Lulu.ogv'
     }
   ];
 
-  var poster1 = 'video/Symmetric-Traffic.jpg';
-  var poster2 = 'video/Coverr-Lulu.jpg';
+  var poster1 = 'https://s3-eu-west-1.amazonaws.com/originalexe/vidim/videos/Symmetric-Traffic.jpg';
+  var poster2 = 'https://s3-eu-west-1.amazonaws.com/originalexe/vidim/videos/Coverr-Lulu.jpg';
 
   var youtubeSrc = 'https://www.youtube.com/watch?v=uVW81kp2HSo';
 
