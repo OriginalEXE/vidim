@@ -1,9 +1,13 @@
 {
   "name": "vidim",
   "version": "1.0.0",
-  "description": "Background videos made easy. Supports both YouTube and locally hosted videos.",
-  "author": "",
-  "main": "src/index.js",
+  "description": "Background videos made easy. Supports both YouTube and self hosted videos.",
+  "author": {
+    "name": "Ante Sepic",
+    "email": "antesepic@gmail.com",
+    "url": "https://github.com/OriginalEXE"
+  },
+  "main": "dist/vidim.js",
   "scripts": {
     "build": "gulp build",
     "dev": "gulp dev",
@@ -11,7 +15,14 @@
     "docs": "gulp docs",
     "test": "./node_modules/karma/bin/karma start"
   },
-  "license": "ISC",
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/OriginalEXE/vidim.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OriginalEXE/vidim/issues"
+  },
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-preset-es2015": "^6.18.0",
