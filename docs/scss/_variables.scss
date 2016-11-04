@@ -1,0 +1,59 @@
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$av-breakpoints: (
+  'medium': '(min-width: 768px)',
+  'large': '(min-width: 1024px)',
+) !default;
+
+/// Grid gutter
+/// @type Length
+$av-gutter: 30px !default;
+
+/// Grid width class namespace
+/// @type String
+$av-width-class-namespace: 'grid__cell--' !default;
+
+/// Grid gutter
+/// @type String
+$av-width-class-style: 'percentage' !default;
+
+/// Grid widths map
+/// @prop {Map} values - Width denominator values (when expressed as a fraction)
+$av-widths: (
+  2,
+  3,
+  4,
+) !default;
+
+/// Grid responsiveness flag
+/// @type Boolean
+$av-enable-responsive: true !default;
+
+/// Vertically centered grid
+/// @type Boolean
+$av-enable-grid-middle: true !default;
+
+/// All cells are horizontally centered within the container.
+/// @type Boolean
+$av-enable-grid-center: true !default;
+
+/// Grid cells are displayed in the opposite of their source order.
+/// @type Boolean
+$av-enable-grid-rev: true !default;
+
+/// Gutters between cells set to half of the global gutter value.
+/// @type Boolean
+$av-enable-grid-small: true !default;
+
+/// Gutters between cells set to double the global gutter value.
+/// @type Boolean
+$av-enable-grid-large: true !default;
+
+/// Text color
+/// @type Color
+$text-color: rgba(0, 0, 0, 0.8);
+
+/// Main color
+/// @type Color
+$theme-color: rgb(192, 57, 43);

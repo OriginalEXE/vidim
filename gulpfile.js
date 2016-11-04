@@ -1,4 +1,6 @@
 const gulp = require( 'gulp' );
+const sass = require( 'gulp-sass' );
+const autoprefixer = require( 'gulp-autoprefixer' );
 const del = require( 'del' );
 const rollup = require( 'rollup' ).rollup;
 const babel = require( 'rollup-plugin-babel' )
@@ -125,6 +127,33 @@ function build() {
 
 }
 
+function docs() {
+
+  docsSass();
+
+  gulp.watch( 'docs/scss/**/*.scss', docsSass );
+
+}
+
+function docsSass() {
+
+  return gulp.src( 'docs/scss/main.scss' )
+    .pipe(
+      sass({
+        outputStyle: 'compressed'
+      })
+    )
+    .pipe(
+      autoprefixer({
+        browsers: ['last 3 versions']
+      })
+    )
+    .pipe( gulp.dest( 'docs/css' ) );
+
+}
+
 exports.dev = dev;
 exports.devWatch = devWatch;
 exports.build = build;
+exports.docs = docs;
+exports.docsSass = docsSass;
