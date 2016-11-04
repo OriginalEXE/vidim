@@ -7,7 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>Vidim - Easy background videos</title>
-  <meta name="description" content="Background videos made easy. Supports both YouTube and locally hosted videos.">
+  <meta name="description" content="Background videos made easy. Supports both YouTube and self hosted videos.">
 
   <link
   href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"
@@ -42,7 +42,7 @@
           <p>
             While there are a couple of libraries out there, I was not very
             satisfied with any of them. First of all, I could not find any that
-            supports both local videos as well as YouTube hosted ones. Second,
+            supports both self hosted videos as well as YouTube hosted ones. Second,
             most of them rely on jQuery. And third, they were not easy to pick
             up for beginners.
           </p>
@@ -58,7 +58,7 @@
         <div class="grid__cell grid__cell--100">
           <h2>Quick summary of important features</h2>
           <ul>
-            <li>Supports both local and YouTube videos</li>
+            <li>Supports both self hosted and YouTube videos</li>
             <li>Same API regarless of which hosting you use</li>
             <li>Very lightweight but still feature-full</li>
             <li>
@@ -87,7 +87,7 @@
     <div class="container">
       <div class="grid">
         <div class="grid__cell grid__cell--100">
-          <h3>Simple locally hosted bg</h3>
+          <h3>Simple self hosted bg</h3>
         </div>
       </div>
     </div>
@@ -220,7 +220,7 @@ myBackground.pause();</code></pre>
 
           <h5>src: false</h5>
           <p class="description">
-            <b>Local video:</b> an array of objects, each with keys <code>type</code>
+            <b>Self hosted video:</b> an array of objects, each with keys <code>type</code>
             and <code>src</code>, where type is for example <code>video/mp4</code>
             and src is a path to the source of that type.
             <br>
@@ -229,7 +229,7 @@ myBackground.pause();</code></pre>
 
           <h5>type: 'HTML5'</h5>
           <p class="description">
-            <b>Local video:</b> you don't need to pass this options, as it's
+            <b>Self hosted video:</b> you don't need to pass this options, as it's
             a default.
             <br>
             <b>YouTube:</b> set this to <code>'YouTube'</code> or player won't
@@ -312,7 +312,7 @@ myBackground.pause();</code></pre>
 
           <h5>preload: 'auto'</h5>
           <p class="description">
-            <b>Local video only:</b> sets a <code>preload</code> attribute on a
+            <b>Self hosted video only:</b> sets a <code>preload</code> attribute on a
             video element.
           </p>
 
@@ -471,14 +471,14 @@ myBackground.pause();</code></pre>
 
           <h5>canplay</h5>
           <p class="description">
-           Local video only. Emitted once the video has loaded enough to start
+           Self hosted video only. Emitted once the video has loaded enough to start
            playing, but not necessarily enough to play the whole duration without
            buffering.
           </p>
 
           <h5>canplaythrough</h5>
           <p class="description">
-           Local video only. Emitted once the video has loaded enough that it
+           Self hosted video only. Emitted once the video has loaded enough that it
            should be able to play for the whole duration without the need for
            buffering.
           </p>
