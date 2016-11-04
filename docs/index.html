@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Vidim - Easy background videos</title>
+  <meta name="description" content="Background videos made easy. Supports both YouTube and self hosted videos.">
+
+  <link
+  href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"
+  rel="stylesheet"
+  >
+
+  <link href="css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <section class="section cover js-cover">
+
+    <div class="container">
+      <div class="grid">
+        <div class="grid__cell grid__cell--100">
+          <h1>Wellcome to vidi</h1>
+          <p>a no-dependencies library for display background videos in modern browsers (and IE9)</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid">
+        <div class="grid__cell grid__cell--100">
+          <a href="#docs">skip to the docs</a>
+          <h2>Why do we need another library?</h2>
+          <p>
+            While there are a couple of libraries out there, I was not very
+            satisfied with any of them. First of all, I could not find any that
+            supports both self hosted videos as well as YouTube hosted ones. Second,
+            most of them rely on jQuery. And third, they were not easy to pick
+            up for beginners.
+          </p>
+          <p>Also, it's <img class="badge" src="img/badge.svg"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section -no-top-padding">
+    <div class="container">
+      <div class="grid">
+        <div class="grid__cell grid__cell--100">
+          <h2>Quick summary of important features</h2>
+          <ul>
+            <li>Supports both self hosted and YouTube videos</li>
+            <li>Same API regarless of which hosting you use</li>
+            <li>Very lightweight but still feature-full</li>
+            <li>
+              No implemented crappy mobile detection (example provided, but
+              left up to the developer)
+            </li>
+            <li>Responsive out of the box</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo" class="section -no-top-padding">
+    <div class="container">
+      <div class="grid">
+        <div class="grid__cell grid__cell--100">
+          <h2>Show me the demo!!!</h2>
+          <p>Calm down, here you go:</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="grid">
+        <div class="grid__cell grid__cell--100">
+          <h3>Simple self hosted bg</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="demo-1" class="demo-bg"></div>
+
+  <section class="section -no-bottom-padding">
+    <div class="container">
+      <div class="grid">
+        <div class="grid__cell grid__cell--100">
+          <h3>Simple YouTube hosted bg</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="demo-2" class="demo-bg"></div>
+
+  <section class="section -no-bottom-padding">
+    <div class="container">
+      <div class="grid">
+        <div class="grid__cell grid__cell--100">
+          <h3>Works on non-full-width elements as well, of course</h3>
+          <div id="demo-3" class="demo-el"></div>
+          <p>And comes with a simple API:</p>
+          <ul>
+            <li>
+              <a href="#" class="js-play">Play</a>
+            </li>
+            <li>
+              <a href="#" class="js-pause">Pause</a>
+            </li>
+            <li>
+              <a href="#" class="js-change-source">Change source</a>
+            </li>
+            <li>
+              <a href="#" class="js-show-poster">Show poster</a>
+            </li>
+            <li>
+              <a href="#docs">and more...</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="docs" class="section">
+    <div class="container">
+      <div class="grid">
+        <div class="grid__cell grid__cell--100">
+
+          <h2>Documentation</h2>
+          <p>
+            Most mobile devices do not support auto-playback of videos,
+            in which case the video will be initialized in the paused state.
+            For video to start playing, it requires a user interaction, like
+            clicking on the element. You could use API to listen to a click
+            event and trigger the video playback.
+          </p>
+          <p>
+            The problem arises when you want to detect which devices can
+            autoplay videos. A foolish approach is detecting touch screens, but
+            not only is it really hard, it's also not precise because a lot of
+            laptops have touch screens. It is left up to the developer to
+            implement detection that best suits his project. For this demo, I
+            am using <a href="https://modernizr.com/download/?videoautoplay">Modernizr</a>
+            autoplay detection that is really hacky (and quite big), but seems
+            to work pretty reliably.
+          </p>
+          <p>
+            On devices you don't want to display videos on, I suggest only
+            providing poster and leaving out the <code>src</code> to stop the video from
+            unnecessary loading.
+          </p>
+
+          <h3>Include the library before your own javascript:</h3>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/vidim.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+          <p>or event better, npm install it:</p>
+<pre><code>npm install vidim --save</code></pre>
+
+          <h3 id="docs-new-instance">Creating a new instance</h3>
+<pre><code>var myBackground = new vidim( '#element-id', {
+  src: [
+    {
+      type: 'video/mp4',
+      src: 'path/to/your/video.mp4'
+    },
+    {
+      type: 'video/ogv',
+      src: 'path/to/your/video.ogv'
+    }
+  ],
+  poster: 'path/to/your/poster.jpg'
+});</code></pre>
+
+          <p class="description">
+            Note: you can pass any valid CSS selector as a first argument, it
+            doesn't have to be an id. It can also be a DOM element itself.
+            For example, if you were using jQuery, you would pass
+            <code>$( '.some-element' )[0]</code>
+          </p>
+
+          <p>or directly from the dom:</p>
+<pre><code>&lt;div style=&quot;padding-bottom: 65.25%;&quot; data-vidim=&quot;{ src: [{ type: &#39;video/mp4&#39;, src: &#39;path/to/your/video.mp4&#39;}]}&gt;&lt;/div&gt;</code></pre>
+
+          <p class="description">
+            Note: when using dom attribute, make sure you use no quotes on
+            object keys and single quotes around strings.
+          </p>
+
+          <h3>Calling API methods on the instance</h3>
+<pre><code>myBackground.play();
+myBackground.pause();</code></pre>
+
+          <h3>Listening for events</h3>
+<pre><code>myBackground.on( 'pause', function() {
+  console.log( 'Video paused!' );
+});</code></pre>
+
+          <h3 id="docs-options">Options</h3>
+
+          <h5>wrapperClass: ''</h5>
+          <p class="description">Class assigned to the wrapper element.</p>
+
+          <h5>overlayClass: ''</h5>
+          <p class="description">Class assigned to the overlay element.</p>
+
+          <h5>src: false</h5>
+          <p class="description">
+            <b>Self hosted video:</b> an array of objects, each with keys <code>type</code>
+            and <code>src</code>, where type is for example <code>video/mp4</code>
+            and src is a path to the source of that type.
+            <br>
+            <b>YouTube:</b> a url to the YouTube video or a YouTube video ID.
+          </p>
+
+          <h5>type: 'HTML5'</h5>
+          <p class="description">
+            <b>Self hosted video:</b> you don't need to pass this options, as it's
+            a default.
+            <br>
+            <b>YouTube:</b> set this to <code>'YouTube'</code> or player won't
+            work.
+          </p>
+
+          <h5>ratio: 1.7778</h5>
+          <p class="description">
+            Aspect ratio of the video you are passing. Supports float number or
+            '4/3' and '16/9' strings (for convenience only). Default is the
+            same as passing '16/9'.
+          </p>
+
+          <h5>autoplay: true</h5>
+          <p class="description">
+            Set to false if you don't want video to start playing automatically
+            (autoplay: true is mostly not supported on mobile devices).
+          </p>
+
+          <h5>loop: true</h5>
+          <p class="description">
+            Set to false if you don't want video to loop and instead play only
+            once.
+          </p>
+
+          <h5>poster: ''</h5>
+          <p class="description">
+            Path to image you want to use as poster. Poster can be configured
+            to display before the video loads and after it finishes, as well as
+            during pause. You can also only pass poster and leave out the
+            <code>src</code> to display image bg only.
+          </p>
+
+          <h5>showPosterBeforePlay: true</h5>
+          <p class="description">
+            Whether poster should be displayed before the video begins playing
+            for the first time (for example while it's loading).
+          </p>
+
+          <h5>showPosterOnEnd: false</h5>
+          <p class="description">
+            Whether poster should be displayed after the video finishes playing
+            (will of course not work if the video is set to loop).
+          </p>
+
+          <h5>showPosterOnPause: false</h5>
+          <p class="description">
+            Set to true to show the poster while the video is paused.
+          </p>
+
+          <h5>zIndex: 0</h5>
+          <p class="description">
+            Sets the <code>z-index</code> css proeprty of the background video.
+          </p>
+
+          <h5>autoResize: true</h5>
+          <p class="description">
+            Resizes the video automatically when the browser window is resized.
+            You can also call <code>.resize()</code> manually on the vidim
+            instance to trigger a resize.
+          </p>
+
+          <h5>muted: true</h5>
+          <p class="description">
+            Set to false if you want to play sound (most users won't appreciate
+            that).
+          </p>
+
+          <h5>startAt: 0</h5>
+          <p class="description">
+            Number of seconds into the video where playback should start from.
+          </p>
+
+          <h5>onReady: false</h5>
+          <p class="description">
+            You can set this to a function that will be called once the player
+            is ready to receive API calls. Function is passed a single argument,
+            a vidim instance, which you can use to call API methods on.
+          </p>
+
+          <h5>preload: 'auto'</h5>
+          <p class="description">
+            <b>Self hosted video only:</b> sets a <code>preload</code> attribute on a
+            video element.
+          </p>
+
+          <h5>quality: 'hd1080'</h5>
+          <p class="description">
+            <b>YouTube only:</b> sets a desired playback quality (it's up to
+            the YouTube to honour this request). Check https://developers.google.com/youtube/iframe_api_reference#Playback_quality
+            for a list of possible qualities.
+          </p>
+
+          <h3 id="docs-methods">Methods</h3>
+
+          <h5>play()</h5>
+          <p class="description">Plays the video.</p>
+
+          <h5>pause()</h5>
+          <p class="description">Pauses the video.</p>
+
+          <h5>setVolume( volume )</h5>
+          <p class="description">
+            Sets the video volume. Minimum is 0, and maximum is 100.
+          </p>
+
+          <h5>getVolume()</h5>
+          <p class="description">
+            Gets the video volume. Minimum is 0, and maximum is 100.
+          </p>
+
+          <h5>mute()</h5>
+          <p class="description">
+            Mutes the video.
+          </p>
+
+          <h5>unMute()</h5>
+          <p class="description">
+            Unmutes the video.
+          </p>
+
+          <h5>setTime( time )</h5>
+          <p class="description">
+            Sets the current time (in seconds) for the video.
+          </p>
+
+          <h5>getTime()</h5>
+          <p class="description">
+           Gets the current time (in seconds) for the video.
+          </p>
+
+          <h5>getDuration()</h5>
+          <p class="description">
+           Gets the duration (in seconds) of the video.
+          </p>
+
+          <h5>showPoster()</h5>
+          <p class="description">
+           Pauses the video and shows the poster.
+          </p>
+
+          <h5>changeSource( newSource, newPoster (optional) )</h5>
+          <p class="description">
+           Sets the new source for the video. This allows you to not have to
+           destroy the current instance and create a new one if you simply want
+           to show another video.
+          </p>
+
+          <h5>destroy()</h5>
+          <p class="description">
+           Destroys the background and cleans up after itself, basically
+           leaving you with thee state before you created the background video.
+          </p>
+
+          <h5>resize()</h5>
+          <p class="description">
+           Resizes the video so that it adjusts to the containing element
+           dimensions. If you are using <code>autoResize: true</code> in your
+           optiosn then generally you won't need to call this manually, however
+           if the containing element could resize regardless of the browser
+           video changing its size (for example inserting dynamic content),
+           then you should call this manually to update the background video
+           size.
+          </p>
+
+          <h3 id="docs-global-methods">Global methods</h3>
+
+          <h5>vidim.getInstanceFromID( ID )</h5>
+          <p class="description">
+           When created, each vidim instance gets assigned a unique numeric ID.
+           If you only have an ID and want to get the instance back, use this
+           method.
+          </p>
+
+          <h5>vidim.getInstanceFromElement( element )</h5>
+          <p class="description">
+           Useful when you don't store the instance in a variable, but you need
+           it to call some methods on it. You can use this method to retrieve
+           the instance from the container you called it on. <code>element</code>
+           can be either a selector string or an actual DOM element.
+          </p>
+
+          <h5>vidim.registerProvider( type, configuration )</h5>
+          <p class="description">
+           You can use this method to register another provider except the ones
+           that the library ships with (HTML% and YouTube). Check the
+           <code>src/providers</code> folder on GitHub for an example.
+          </p>
+
+          <h5>vidim.destroyAllInstances()</h5>
+          <p class="description">
+           If you want to destroy all active instances, you can use this simple
+           method instead of calling <code>destroy()</code> on each instance
+           separately.
+          </p>
+
+          <h5>vidim.scanDOM()</h5>
+          <p class="description">
+           Scans the DOM for any elements that have a <code>data-vidim</code>
+           attribute and creates a background on each based on the options
+           provided in the attribute.
+          </p>
+
+          <h3 id="docs-events">Events</h3>
+          <p class="description">
+           To listen for a specific event, call <code>.on( eventName, yourFunction )</code>
+           on your vidim instance. To stop listening, call <code>.off( eventName, yourFunction )</code>.
+           To listen for an event only once, use <code>.once( eventName, yourFunction )</code>,
+           and to trigger an event, use <code>.emit( eventName )</code>.
+          </p>
+
+          <h5>ready</h5>
+          <p class="description">
+           This event is emitted once the player is ready to receive API calls.
+          </p>
+
+          <h5>play</h5>
+          <p class="description">
+           This event is emitted once the player starts playing (either
+           initially or after a pause).
+          </p>
+
+          <h5>end</h5>
+          <p class="description">
+           Emitted once the video ends (will not be triggered if video is set to
+           loop).
+          </p>
+
+          <h5>destroy</h5>
+          <p class="description">
+           Emitted just before the instance is about to be destroyed.
+          </p>
+
+          <h5>resize</h5>
+          <p class="description">
+           Emitted after the video has been resized (i.e. on every <code>resize()</code>
+           method call).
+          </p>
+
+          <h5>canplay</h5>
+          <p class="description">
+           Self hosted video only. Emitted once the video has loaded enough to start
+           playing, but not necessarily enough to play the whole duration without
+           buffering.
+          </p>
+
+          <h5>canplaythrough</h5>
+          <p class="description">
+           Self hosted video only. Emitted once the video has loaded enough that it
+           should be able to play for the whole duration without the need for
+           buffering.
+          </p>
+
+          <h5>buffering</h5>
+          <p class="description">
+           YouTube only. Emitted when the video is buffering.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <script type="text/javascript" src="../dist/vidim.min.js"></script>
+  <script type="text/javascript" src="js/demo.js"></script>
+
+</body>
+
+</html>
