@@ -1,6 +1,6 @@
 /* 
  * vidim v1.0.0
- * 2016-11-03T14:17:43.707Z
+ * 2016-11-04T00:33:53.043Z
  * https://github.com/OriginalEXE/vidim 
  * 
  * Made by Ante Sepic 
@@ -548,6 +548,8 @@ var html5Provider = function (vidim) {
      * @param {Object} src Hash of video types and sources
      */
     changeSource: function changeSource(src) {
+      var newPoster = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
 
       this.el.innerHTML = '';
 
@@ -569,6 +571,18 @@ var html5Provider = function (vidim) {
       if (this._options.startAt) {
 
         this.el.currentTime = this._options.startAt;
+      }
+
+      if (newPoster) {
+
+        var oldPoster = this._options.poster;
+
+        if (-1 !== this.wrapper.style.backgroundImage.indexOf(oldPoster)) {
+
+          this.wrapper.style.backgroundImage = 'url(\'' + newPoster + '\')';
+        }
+
+        this._options.poster = newPoster;
       }
     },
 
@@ -956,6 +970,8 @@ var YouTubeProvider = function (vidim) {
      * @param {Object} src Hash of video types and sources
      */
     changeSource: function changeSource(src) {
+      var newPoster = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
 
       if (11 === src.length) {
 
@@ -977,6 +993,18 @@ var YouTubeProvider = function (vidim) {
       this.player.loadPlaylist(this.videoID, 0, this._options.startAt, this._options.quality);
 
       this.player.setLoop(this._options.loop);
+
+      if (newPoster) {
+
+        var oldPoster = this._options.poster;
+
+        if (-1 !== this.wrapper.style.backgroundImage.indexOf(oldPoster)) {
+
+          this.wrapper.style.backgroundImage = 'url(\'' + newPoster + '\')';
+        }
+
+        this._options.poster = newPoster;
+      }
     },
 
     /**

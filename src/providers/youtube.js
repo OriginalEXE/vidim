@@ -346,7 +346,7 @@ export default function( vidim ) {
      * Changes the source of the current video
      * @param {Object} src Hash of video types and sources
      */
-    changeSource: function( src ) {
+    changeSource: function( src, newPoster = false ) {
 
       if ( 11 === src.length ) {
 
@@ -377,6 +377,20 @@ export default function( vidim ) {
       );
 
       this.player.setLoop( this._options.loop );
+
+      if ( newPoster ) {
+
+        var oldPoster = this._options.poster;
+
+        if ( -1 !== this.wrapper.style.backgroundImage.indexOf( oldPoster ) ) {
+
+          this.wrapper.style.backgroundImage = `url('${newPoster}')`;
+
+        }
+
+        this._options.poster = newPoster;
+
+      }
 
     },
 
