@@ -149,8 +149,8 @@ export default function( vidim ) {
 
       if ( this._options.loop ) {
 
-        playerParams.playlist = this.videoID;
-        playerParams.loop = 1;
+        playerParams.playerVars.playlist = this.videoID;
+        playerParams.playerVars.loop = 1;
 
       }
 
