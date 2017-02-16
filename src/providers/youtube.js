@@ -120,6 +120,39 @@ export default function( vidim ) {
 
             this.emit( 'ready' );
 
+            if ( this._options.loop ) {
+
+              let loopInterval;
+
+              this.on( 'play', () => {
+
+                loopInterval = setInterval( () => {
+
+                  if ( this.getTime() + 0.15 > this.getDuration() ) {
+
+                    this.setTime( 0 );
+                    this.play();
+
+                  }
+
+                }, 100 );
+
+              });
+
+              this.on( 'pause', () => {
+
+                clearInterval( loopInterval );
+
+              });
+
+              this.on( 'destroy', () => {
+
+                clearInterval( loopInterval );
+
+              });
+
+            }
+
           },
           'onStateChange': ( e ) => {
 
@@ -149,8 +182,8 @@ export default function( vidim ) {
 
       if ( this._options.loop ) {
 
-        playerParams.playlist = this.videoID;
-        playerParams.loop = 1;
+        playerParams.playerVars.playlist = this.videoID;
+        playerParams.playerVars.loop = 1;
 
       }
 

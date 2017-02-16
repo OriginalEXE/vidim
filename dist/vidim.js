@@ -1,6 +1,6 @@
 /* 
  * vidim v1.0.0
- * 2016-11-04T00:33:53.043Z
+ * 2017-02-16T12:56:09.077Z
  * https://github.com/OriginalEXE/vidim 
  * 
  * Made by Ante Sepic 
@@ -20,7 +20,7 @@ var index$1 = createCommonjsModule(function (module) {
  * Expose `Emitter`.
  */
 
-if (typeof module !== 'undefined') {
+{
   module.exports = Emitter;
 }
 
@@ -761,6 +761,33 @@ var YouTubeProvider = function (vidim) {
             }
 
             _this2.emit('ready');
+
+            if (_this2._options.loop) {
+
+              var loopInterval = void 0;
+
+              _this2.on('play', function () {
+
+                loopInterval = setInterval(function () {
+
+                  if (_this2.getTime() + 0.15 > _this2.getDuration()) {
+
+                    _this2.setTime(0);
+                    _this2.play();
+                  }
+                }, 100);
+              });
+
+              _this2.on('pause', function () {
+
+                clearInterval(loopInterval);
+              });
+
+              _this2.on('destroy', function () {
+
+                clearInterval(loopInterval);
+              });
+            }
           },
           'onStateChange': function onStateChange(e) {
 
@@ -789,8 +816,8 @@ var YouTubeProvider = function (vidim) {
 
       if (this._options.loop) {
 
-        playerParams.playlist = this.videoID;
-        playerParams.loop = 1;
+        playerParams.playerVars.playlist = this.videoID;
+        playerParams.playerVars.loop = 1;
       }
 
       this.player = new YT.Player(toBeReplaced, playerParams);
@@ -1104,24 +1131,22 @@ if ('undefined' === typeof window.onYouTubeIframeAPIReady) {
     window.dispatchEvent(event);
   };
 } else {
-  (function () {
 
-    var oldOnYouTubeIframeAPIReady = window.onYouTubeIframeAPIReady;
+  var oldOnYouTubeIframeAPIReady = window.onYouTubeIframeAPIReady;
 
-    window.onYouTubeIframeAPIReady = function () {
+  window.onYouTubeIframeAPIReady = function () {
 
-      oldOnYouTubeIframeAPIReady();
+    oldOnYouTubeIframeAPIReady();
 
-      window.vidimYouTubeAPIReady = true;
+    window.vidimYouTubeAPIReady = true;
 
-      isAPIReady = true;
+    isAPIReady = true;
 
-      window.dispatchEvent(event);
-    };
-  })();
+    window.dispatchEvent(event);
+  };
 }
 
-var index = (function factory(global) {
+var index = ((function factory(global) {
 
   if ('undefined' === typeof global.document) {
 
@@ -1527,7 +1552,7 @@ var index = (function factory(global) {
   ready(scanDOM);
 
   return vidim;
-})('undefined' !== typeof window ? window : undefined);
+}))('undefined' !== typeof window ? window : undefined);
 
 return index;
 
