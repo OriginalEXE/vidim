@@ -128,7 +128,10 @@ export default function( vidim ) {
 
                 loopInterval = setInterval( () => {
 
-                  if ( this.getTime() + 0.15 > this.getDuration() ) {
+                  if (
+                    this.getTime() === 0 ||
+                    this.getTime() + 0.15 > this.getDuration()
+                  ) {
 
                     this.setTime( 0 );
                     this.play();

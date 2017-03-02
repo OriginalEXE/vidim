@@ -1,6 +1,6 @@
 /* 
  * vidim v1.0.0
- * 2017-02-16T12:56:09.077Z
+ * 2017-03-02T00:53:23.698Z
  * https://github.com/OriginalEXE/vidim 
  * 
  * Made by Ante Sepic 
@@ -770,7 +770,7 @@ var YouTubeProvider = function (vidim) {
 
                 loopInterval = setInterval(function () {
 
-                  if (_this2.getTime() + 0.15 > _this2.getDuration()) {
+                  if (_this2.getTime() === 0 || _this2.getTime() + 0.15 > _this2.getDuration()) {
 
                     _this2.setTime(0);
                     _this2.play();
