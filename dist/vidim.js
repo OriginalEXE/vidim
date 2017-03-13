@@ -1,6 +1,6 @@
 /* 
- * vidim v1.0.0
- * 2017-03-02T00:53:23.698Z
+ * vidim v1.0.1
+ * 2017-03-13T17:00:04.439Z
  * https://github.com/OriginalEXE/vidim 
  * 
  * Made by Ante Sepic 
