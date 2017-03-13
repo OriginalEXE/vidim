@@ -120,6 +120,42 @@ export default function( vidim ) {
 
             this.emit( 'ready' );
 
+            if ( this._options.loop ) {
+
+              let loopInterval;
+
+              this.on( 'play', () => {
+
+                loopInterval = setInterval( () => {
+
+                  if (
+                    this.getTime() === 0 ||
+                    this.getTime() + 0.15 > this.getDuration()
+                  ) {
+
+                    this.setTime( 0 );
+                    this.play();
+
+                  }
+
+                }, 100 );
+
+              });
+
+              this.on( 'pause', () => {
+
+                clearInterval( loopInterval );
+
+              });
+
+              this.on( 'destroy', () => {
+
+                clearInterval( loopInterval );
+
+              });
+
+            }
+
           },
           'onStateChange': ( e ) => {
 
