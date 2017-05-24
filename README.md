@@ -9,7 +9,7 @@ It supports all modern browsers, as well as IE9+. It's worth noting that a lot o
 The library right now supports self hosted videos, as well as YouTube. Vimeo is not planned as it's not possible to elegantly hide the UI of their free player, and PRO users have an option of getting the video source directly anyway so they can still use this library with the self hosted provider.
 
 ## How to get started?
-`npm install vidim`
+`npm install vidim` or `yarn add vidim`
 
 I would also suggest [reading the docs](https://originalexe.github.io/vidim/#docs)
 
