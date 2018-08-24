@@ -34,67 +34,62 @@
   var youtubeSrc = 'https://www.youtube.com/watch?v=uVW81kp2HSo';
 
   var cover = document.querySelector( '.js-cover' );
-
-  Modernizr.on( 'videoautoplay', function( canAutoplay ) {
-
-    var vidimCover = new vidim( cover, {
-      src: canAutoplay ? htmlSrc1 : false,
-      poster: poster1,
-      overlayClass: 'cover__overlay'
-    });
-
-    var demo1 = new vidim( '#demo-1', {
-      src: canAutoplay ? htmlSrc1 : false,
-      poster: poster1
-    });
-
-    var demo2 = new vidim( '#demo-2', {
-      src: canAutoplay ? youtubeSrc : false,
-      type: 'YouTube',
-      poster: poster1
-    });
-
-    var demo3 = new vidim( '#demo-3', {
-      src: htmlSrc1,
-      poster: poster1
-    });
-
-    document.querySelector( '.js-play' )
-      .addEventListener( 'click', function( e ) {
-
-        e.preventDefault();
-
-        demo3.play();
-
-      }, false );
-
-    document.querySelector( '.js-pause' )
-      .addEventListener( 'click', function( e ) {
-
-        e.preventDefault();
-
-        demo3.pause();
-
-      }, false );
-
-    document.querySelector( '.js-change-source' )
-      .addEventListener( 'click', function( e ) {
-
-        e.preventDefault();
-
-        demo3.changeSource( htmlSrc2, poster2 );
-
-      }, false );
-
-    document.querySelector( '.js-show-poster' )
-      .addEventListener( 'click', function( e ) {
-
-        e.preventDefault();
-
-        demo3.showPoster();
-
-      }, false );
-
+  var vidimCover = new vidim( cover, {
+    src: htmlSrc1,
+    poster: poster1,
+    overlayClass: 'cover__overlay'
   });
+
+  var demo1 = new vidim( '#demo-1', {
+    src: htmlSrc1,
+    poster: poster1
+  });
+
+  var demo2 = new vidim( '#demo-2', {
+    src: youtubeSrc,
+    type: 'YouTube',
+    poster: poster1
+  });
+
+  var demo3 = new vidim( '#demo-3', {
+    src: htmlSrc1,
+    poster: poster1
+  });
+
+  document.querySelector( '.js-play' )
+    .addEventListener( 'click', function( e ) {
+
+      e.preventDefault();
+
+      demo3.play();
+
+    }, false );
+
+  document.querySelector( '.js-pause' )
+    .addEventListener( 'click', function( e ) {
+
+      e.preventDefault();
+
+      demo3.pause();
+
+    }, false );
+
+  document.querySelector( '.js-change-source' )
+    .addEventListener( 'click', function( e ) {
+
+      e.preventDefault();
+
+      demo3.changeSource( htmlSrc2, poster2 );
+
+    }, false );
+
+  document.querySelector( '.js-show-poster' )
+    .addEventListener( 'click', function( e ) {
+
+      e.preventDefault();
+
+      demo3.showPoster();
+
+    }, false );
 
 })();
