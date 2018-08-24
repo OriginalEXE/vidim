@@ -94,7 +94,9 @@ export default function( vidim ) {
           fs: 0,
           iv_load_policy: 3,
           modestbranding: 1,
-          origin: window.location.host,
+          origin: typeof window.location.origin !== 'undefined'
+            ? window.location.origin
+            : `${window.location.protocol}//${window.location.hostname}${(window.location.port ? ':' + window.location.port : '')}`,
           playsinline: 1,
           rel: 0,
           showinfo: 0,
