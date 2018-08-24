@@ -15,7 +15,7 @@
     "docs": "gulp docs",
     "test": "./node_modules/karma/bin/karma start"
   },
-  "repository" : {
+  "repository": {
     "type": "git",
     "url": "https://github.com/OriginalEXE/vidim.git"
   },
