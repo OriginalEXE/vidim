@@ -1,6 +1,6 @@
 /* 
  * vidim v1.0.1
- * 2017-03-13T17:00:04.439Z
+ * 2018-08-24T13:55:53.385Z
  * https://github.com/OriginalEXE/vidim 
  * 
  * Made by Ante Sepic 
@@ -15,7 +15,7 @@ function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
 
-var index$1 = createCommonjsModule(function (module) {
+var componentEmitter = createCommonjsModule(function (module) {
 /**
  * Expose `Emitter`.
  */
@@ -738,7 +738,7 @@ var YouTubeProvider = function (vidim) {
           fs: 0,
           iv_load_policy: 3,
           modestbranding: 1,
-          origin: window.location.host,
+          origin: typeof window.location.origin !== 'undefined' ? window.location.origin : window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : ''),
           playsinline: 1,
           rel: 0,
           showinfo: 0,
@@ -1384,7 +1384,7 @@ var index = ((function factory(global) {
     instances[this.vidimID] = this;
 
     // Add emitter interface to our instance
-    index$1(this);
+    componentEmitter(this);
 
     // Check if poster was provided but the source was not,
     // in that case we fake a simple provider interface that only displays a
