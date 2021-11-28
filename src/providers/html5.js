@@ -401,17 +401,7 @@ export default function( vidim ) {
 
       }
 
-      if (
-        (
-             1 < this._options.ratio
-          && ( containerWidth / containerHeight ) < this._options.ratio
-        )
-        ||
-        (
-             1 > this._options.ratio
-          && ( containerHeight / containerWidth ) < this._options.ratio
-        )
-      ) {
+      if ( containerWidth / containerHeight < this._options.ratio ) {
 
         this.el.style.maxHeight = 'calc( 100% + 2px )';
         this.el.style.maxWidth = '';
